@@ -9,6 +9,8 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 
+import Components from 'unplugin-vue-components/vite'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -17,8 +19,9 @@ export default defineConfig({
     vue(),
     vueJsx(),
     UnoCSS(),
+
+    // 函数自动导入
     AutoImport({
-      // targets to transform
       include: [
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
         /\.vue$/,
@@ -30,14 +33,26 @@ export default defineConfig({
         'vue',
         VueRouterAutoImports,
 
-        // 手动添加自动导入
+        // 配置自动导入 三方库函数
         {
-          'vue-router/auto': ['useLink', 'RouterLink', 'RouterView'],
+          'vue-router/auto': ['useLink'],
           // 常用的 vueuse
           '@vueuse/core': ['useMouseInElement']
         }
       ],
       dts: 'src/auto-imports.d.ts'
+    }),
+
+    // 组件自动导入 默认放在 src/components 文件名需具备唯一性
+    Components({
+      // 配置自动导入 三方库组件
+      types: [
+        {
+          from: 'vue-router/auto',
+          names: ['RouterLink', 'RouterView']
+        }
+      ],
+      dts: 'src/components.d.ts'
     })
   ],
   resolve: {

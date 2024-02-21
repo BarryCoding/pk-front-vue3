@@ -4,6 +4,8 @@
   <p>useMouseInElement {{ x }} {{ y }} {{ isOutside }}</p>
   <RouterLink to="/">Home</RouterLink>
   <RouterLink to="/about">About</RouterLink>
+  <HelloWorld />
+  <UserProfile />
 </template>
 
 <script setup lang="ts">

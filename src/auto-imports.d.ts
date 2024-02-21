@@ -6,8 +6,6 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
-  const RouterLink: typeof import('vue-router/auto')['RouterLink']
-  const RouterView: typeof import('vue-router/auto')['RouterView']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const customRef: typeof import('vue')['customRef']
