@@ -6,8 +6,6 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { RouterLink } from 'vue-router/auto'
-</script>
+<script setup lang="ts"></script>
 
 <style></style>
