@@ -16,7 +16,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    VueRouter({ dts: 'src/typed-router.d.ts' }),
+    VueRouter({ dts: 'src/@types/typed-router.d.ts' }),
     // ⚠️ Vue must be placed after VueRouter()
     vue(),
     Layouts({
@@ -47,7 +47,7 @@ export default defineConfig({
           '@vueuse/core': ['useMouseInElement']
         }
       ],
-      dts: 'src/auto-imports.d.ts'
+      dts: 'src/@types/auto-imports.d.ts'
     }),
 
     // 组件自动导入 默认放在 src/components 文件名需具备唯一性
@@ -59,7 +59,7 @@ export default defineConfig({
           names: ['RouterLink', 'RouterView']
         }
       ],
-      dts: 'src/components.d.ts'
+      dts: 'src/@types/components.d.ts'
     }),
 
     // https://github.com/antfu/vite-plugin-pwa

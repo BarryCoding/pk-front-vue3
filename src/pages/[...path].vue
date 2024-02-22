@@ -1,6 +1,11 @@
 <template>
-  <div>User Profile</div>
+  <div>Not Found</div>
 </template>
+
+<route lang="yaml">
+meta:
+  layout: 404
+</route>
 
 <script setup lang="ts"></script>
 
