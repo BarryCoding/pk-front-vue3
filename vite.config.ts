@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
+import Layouts from 'vite-plugin-vue-layouts'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import UnoCSS from 'unocss/vite'
 
@@ -17,6 +18,11 @@ export default defineConfig({
     VueRouter({ dts: 'src/typed-router.d.ts' }),
     // ⚠️ Vue must be placed after VueRouter()
     vue(),
+    Layouts({
+      layoutsDirs: 'src/layouts',
+      pagesDirs: 'src/pages',
+      defaultLayout: 'default'
+    }),
     vueJsx(),
     UnoCSS(),
 
